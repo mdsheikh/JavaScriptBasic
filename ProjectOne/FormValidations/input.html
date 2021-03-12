@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+function validateForm() {
+  var x = document.forms["myForm"]["fname"].value;
+  if (x == "") {
+    alert("Name must be filled out");
+    return false;
+  }
+  var e = document.forms["myForm"]["emailName"].value;
+  if (e == "") {
+    alert("Valid email must be filled out");
+
+    return false;
+  }
+
+  var m = document.forms["myForm"]["textArea"].value;
+  if (e == "") {
+    alert("Message must be filled out");
+    return false;
+  }
+
+}
+</script>
+
+</head>
+<body>
+
+<form name="myForm" action="/action_page.php" onsubmit="return validateForm()" method="post">
+  <p> Enter Name:</p>
+  <input type="text" name="fname">
+  <p> Enter Email:</p>
+  <input type="email" name="emailName"> </br>
+  <p>Enter Your Message: </p>
+  <textarea type="textarea" name="textArea" rows="4" cols="20"></textarea> <br>
+  <input type="submit" value="Submit">
+</form>
+ <!-- Script tp show the message after sucessful form submission -->
+<script> 
+  let form = document.getElementsByTagName("form")[0];
+   form.addEventListener("submit", (e) => {
+   e.preventDefault();
+   alert("Form Successfully Submitted!");
+   }); 
+   
+ </script>
+
+
+</body>
+</html>

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<p>Enter a number and click OK:</p>
+
+<input id="id1" type="number" max="100">
+<button onclick="myFunction1()"> CLICK</button>
+<p id="demo"></p>
+
+<p>If the number is greater than 100 (the input's max attribute), an error message will be displayed.</p>
+
+
+
+<script>
+function myFunction1() {
+  var txt = "";
+  if (document.getElementById("id1").validity.rangeOverflow) {
+    txt = "Value too large";
+  } else {
+    txt = "Input OK";
+  } 
+  document.getElementById("demo").innerHTML = txt;
+}
+</script>
+
+
+<!-- rangeUnderflow method starts here -->
+<input id="id2" type="number" min="100">
+<button onclick="myFunction2()">OK</button>
+
+<p id="demo2"></p>
+
+<script>
+function myFunction2() {
+  var txt = "";
+  if (document.getElementById("id2").validity.rangeUnderflow) {
+    txt = "Value too small";
+  }
+  document.getElementById("demo2").innerHTML = txt;
+}
+</script>
+
+<!-- tooLong method starts here -->
+<input id="id3" type="text" maxlength="10">
+<button onclick="myFunction3()">CLICK</button>
+
+<script>
+function myFunction3() {
+ 
+  if (document.getElementById("id3").validity.tooLong) {
+    alert("Value is too long!")
+  }
+  
+}
+</script>
+
+</body>
+</html>
